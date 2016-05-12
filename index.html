@@ -224,21 +224,38 @@ docker build -t myimage .
 				</section>
                 <section>
                     <section>
-                        <h2></h2>
-                        <img src="images\grill.gif" />
+                        <h2>Run it!</h2>
+                        <img src="images\hacker-run.gif" />
                     </section>
                     <section>
-                        <h2>Lets build it!</h2>
+						<h2>Ports</h2>
                        <pre>
 							<code data-trim data-noescape>
-docker build -t myimage .
+docker run -p 8080 myimage
                             </code>
                        </pre>
                         <aside class="notes">
-                            -t myimage sets the image name. the fullstop tells it to build in this directory
+                            -p publishes a port (We want to be able to access port 8080
+							myimage tells docker to use our image
                         </aside>
                     </section>
+					<section>
+						<h2>Volumes</h2>
+                       <pre>
+							<code data-trim data-noescape>
+docker run -p 8080 -v .:/opt/ myimage
+                            </code>
+                       </pre>
+						<aside class="notes">
+							-v (host):(container) allows us to link a folder into a container
+							This lets us do stuff like modify the files the webserver is serving as its running
+							You can use this to do things like modify a theme in a running wordpress server, without having to set anything up
+						</aside>
+					</section>
                 </section>
+				<section>
+					<h3>Who wants to try it? </h3>
+				</section>
 			</div>
 		</div>
 
