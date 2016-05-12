@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Docker</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h3>If you like it you better put a container on it.</h3>
+					<p>
+						<small>Troy Cornwall <a href="http://twitter.com/devtroy">@DevTroy</a></small>
+					</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>What is a container?</h2>
+						<img src="images/container.gif"/>
+					</section>
+
+					<section>
+						<h2>Secure immutable box</h2>
+						<aside class="notes">
+							The File System and Networking are segregated by default, with
+						</aside>
+					</section>
+
+					<section>
+						<h3>Shares the Host's Kernel, CPU and Memory</h3>
+						<aside class="notes">
+							This means the containers can be kept really small, yet still highly functional
+						</aside>
+					</section>
+
+					<section>
+						<h2>Made to be built once</h2>
+						<h2>run anywhere</h2>
+						<aside class="notes">
+							No more `it works on my machine`
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>How do you define a docker Container?</h2>
+						<h4 class="fragment">In a Dockerfile </h4>
+					</section>
+					<section>
+						<h2>Dockerfile</h2>
+
+					</section>
+					<section>
+						<h2></h2>
+						<ul>
+							<li>ESL Counter-Strike Worlds<b> USD prize pool</b></li>
+							<li>Some tourny 2 <b>USD prize pool</b></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Korea</h2>
+						<ul>
+							<li>some tourny <b> USD prize pool</b></li>
+							<li>Some tourny 2 <b>USD prize pool</b></li>
+						</ul>
+					</section>
+					<section>
+						<h2>New Zealand</h2>
+						<ul>
+							<li class="fragment">Overtime <b>$4000 NZD prize pool</b></li>
+							<li class="fragment">ApoG DotA 2 New Zealand Nationals <b>$4000 NZD prize pool</b></li>
+							<li class="fragment">Some tourny 2 <b>USD prize pool</b></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>So BattleStack</h2>
+					<ul>
+						<li>Team + Player registration</li>
+						<li>Payment proccessing</li>
+						<li>Scores</li>
+						<li>Customizable websites per tournament</li>
+						<li>More..</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
