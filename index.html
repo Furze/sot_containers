@@ -73,49 +73,172 @@
 						</aside>
 					</section>
 				</section>
-
 				<section>
 					<section>
-						<h2>How do you define a docker Container?</h2>
+						<h2>How do you define a docker image?</h2>
 						<h4 class="fragment">In a Dockerfile </h4>
 					</section>
 					<section>
-						<h2>Dockerfile</h2>
+						<h2>Example Dockerfile</h2>
+						<pre>
+							<code data-trim data-noescape>
+FROM python:latest
 
+ADD . /opt/
+
+WORKDIR /opt/
+RUN ls -alrt
+
+EXPOSE 8080
+CMD python -m http.server 8080
+							</code>
+						</pre>
+						<aside class="notes">
+							Example Dockerfile
+                            Each line in a Dockerfile creates a new layer in a an image, layers can be shared across many images
+						</aside>
 					</section>
 					<section>
-						<h2></h2>
-						<ul>
-							<li>ESL Counter-Strike Worlds<b> USD prize pool</b></li>
-							<li>Some tourny 2 <b>USD prize pool</b></li>
-						</ul>
+						<h2>FROM</h2>
+                        <p>You have to extend a docker image</p>
+                        <pre>
+							<code data-trim data-noescape>
+<mark>FROM python:latest</mark>
+
+ADD . /opt/
+
+WORKDIR /opt/
+RUN ls -alrt
+
+EXPOSE 8080
+CMD python -m http.server 8080
+							</code>
+						</pre>
+						<aside class="notes">
+                            There are heaps of base images you can use, like nodejs, java, ubuntu or you can even make your own
+						</aside>
 					</section>
-					<section>
-						<h2>Korea</h2>
-						<ul>
-							<li>some tourny <b> USD prize pool</b></li>
-							<li>Some tourny 2 <b>USD prize pool</b></li>
-						</ul>
-					</section>
-					<section>
-						<h2>New Zealand</h2>
-						<ul>
-							<li class="fragment">Overtime <b>$4000 NZD prize pool</b></li>
-							<li class="fragment">ApoG DotA 2 New Zealand Nationals <b>$4000 NZD prize pool</b></li>
-							<li class="fragment">Some tourny 2 <b>USD prize pool</b></li>
-						</ul>
-					</section>
+                    <section>
+                        <h2>ADD</h2>
+                        <p>Lets you copy files from the directory of the Docker image into the image as its being built</p>
+                        <pre>
+							<code data-trim data-noescape>
+FROM python:latest
+
+<mark>ADD . /opt/</mark>
+
+WORKDIR /opt/
+RUN ls -alrt
+
+EXPOSE 8080
+CMD python -m http.server 8080
+							</code>
+						</pre>
+                    </section>
+                    <section>
+                        <h2>Workdir</h2>
+                        <p>Sets the directory inside the image we are working in</p>
+                        <pre>
+							<code data-trim data-noescape>
+FROM python:latest
+
+ADD . /opt/
+
+<mark>WORKDIR /opt/</mark>
+RUN ls -alrt
+
+EXPOSE 8080
+CMD python -m http.server 8080
+							</code>
+						</pre>
+                    </section>
+                    <section>
+                        <h2>Run</h2>
+                        <p>Run runs a command within the image</p>
+                        <pre>
+							<code data-trim data-noescape>
+FROM python:latest
+
+ADD . /opt/
+
+WORKDIR /opt/
+<mark>RUN ls -alrt</mark>
+
+EXPOSE 8080
+CMD python -m http.server 8080
+							</code>
+						</pre>
+                    </section>
+                    <section>
+                        <h2>Expose</h2>
+                        <p>Exposes a Port so a container can connect to it</p>
+                        <pre>
+							<code data-trim data-noescape>
+FROM python:latest
+
+ADD . /opt/
+
+WORKDIR /opt/
+RUN ls -alrt
+
+<mark>EXPOSE 8080</mark>
+CMD python -m http.server 8080
+							</code>
+						</pre>
+                    </section>
+                    <section>
+                        <h2>CMD</h2>
+                        <p>Sets the command to run when you start up the image</p>
+                        <p>We're going to start a webserver on Port 8080</p>
+                        <pre>
+							<code data-trim data-noescape>
+FROM python:latest
+
+ADD . /opt/
+
+WORKDIR /opt/
+RUN ls -alrt
+
+EXPOSE 8080
+<mark>CMD python -m http.server 8080</mark>
+							</code>
+						</pre>
+                    </section>
 				</section>
 				<section>
-					<h2>So BattleStack</h2>
-					<ul>
-						<li>Team + Player registration</li>
-						<li>Payment proccessing</li>
-						<li>Scores</li>
-						<li>Customizable websites per tournament</li>
-						<li>More..</li>
-					</ul>
+                    <section>
+					    <h2>Lets build it!</h2>
+					    <img src="images\grill.gif" />
+                    </section>
+                    <section>
+                        <h2>Lets build it!</h2>
+                       <pre>
+							<code data-trim data-noescape>
+docker build -t myimage .
+                            </code>
+                       </pre>
+                        <aside class="notes">
+                           -t myimage sets the image name. the fullstop tells it to build in this directory
+                        </aside>
+                    </section>
 				</section>
+                <section>
+                    <section>
+                        <h2></h2>
+                        <img src="images\grill.gif" />
+                    </section>
+                    <section>
+                        <h2>Lets build it!</h2>
+                       <pre>
+							<code data-trim data-noescape>
+docker build -t myimage .
+                            </code>
+                       </pre>
+                        <aside class="notes">
+                            -t myimage sets the image name. the fullstop tells it to build in this directory
+                        </aside>
+                    </section>
+                </section>
 			</div>
 		</div>
 
