@@ -16,7 +16,7 @@
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="css/zenburn.css">
-
+		<link rel="stylesheet" href="css/custom.css">s
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -38,13 +38,35 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h3>If you like it you better put a container on it.</h3>
-					<p>
-						<small>Troy Cornwall <a href="http://twitter.com/devtroy">@DevTroy</a></small>
-					</p>
+					<section>
+						<h3>If you like it you better put a container on it.</h3>
+						<p>
+							<small>Troy Cornwall <a href="http://twitter.com/devtroy">@DevTroy</a></small>
+						</p>
+					</section>
+					<section>
+						<p>
+							<small>Microsoft ImagineCup - NZ Finalist <em>2014</em></small>
+							<small>Active Mobile Security  <em>June 2014 - September 2014</em> </small>
+							<small>Summer of Tech, Auckland  - <em>2014</em></small>
+							<small>Spark Ventures  <em>November 2014 - October 2015</em> </small>
+							<small>HealthLink  <em>October 2015 - </em></small>
+						</p>
+						<aside>
+							SoT advice -
+							Employers are looking for street-smarts not academic smart
+							Do a side project, put it on your CV
+							Go to ALL the SoT events, the people looking for students are at them, judging you. Seeing who is interested.
+							Get twitter, follow people from the NZ tech scene, people you want to work for. Start conversations.
+						</aside>
+					</section>
+					<section>
+						<h3>So about that dank meme? </h3>
+						<img src="images/dankmeme.gif" />
+					</section>
 				</section>
 
-				<!-- Example of nested vertical slides -->
+
 				<section>
 					<section>
 						<h2>What is a container?</h2>
@@ -70,6 +92,15 @@
 						<h2>run anywhere</h2>
 						<aside class="notes">
 							No more `it works on my machine`
+						</aside>
+					</section>
+
+					<section>
+						<h2>Should have one function</h2>
+						<h3>Eg A Postgres DB or a Webserver or a Java application</h3>
+						<h3>Never multiple</h3>
+						<aside class="notes">
+							Works perfectly with microservices..
 						</aside>
 					</section>
 				</section>
@@ -99,111 +130,22 @@ CMD python -m http.server 8080
 						</aside>
 					</section>
 					<section>
-						<h2>FROM</h2>
-                        <p>You have to extend a docker image</p>
-                        <pre>
-							<code data-trim data-noescape>
-<mark>FROM python:latest</mark>
-
-ADD . /opt/
-
-WORKDIR /opt/
-RUN ls -alrt
-
-EXPOSE 8080
-CMD python -m http.server 8080
-							</code>
-						</pre>
+					 <div class="codebox">
+							 <p class="leftplz"><span class="hljs-keyword">FROM</span> python:latest</p>
+							 <br />
+							 <p class="fragment leftplz"><span class="hljs-keyword">ADD</span> . /opt/</p>
+							 	<br />
+							 <p class="fragment leftplz"><span class="hljs-keyword">WORKDIR</span> /opt/</p>
+							 <p class="fragment leftplz"><span class="hljs-keyword">RUN</span> ls -alrt </p>
+							 	<br />
+							 <p class="fragment leftplz"><span class="hljs-keyword">EXPOSE</span> 8080</p>
+							 <p class="fragment leftplz"><span class="hljs-keyword">CMD</span> python -m http.server 8080</p>
+					 </div>
 						<aside class="notes">
                             There are heaps of base images you can use, like nodejs, java, ubuntu or you can even make your own
+
 						</aside>
 					</section>
-                    <section>
-                        <h2>ADD</h2>
-                        <p>Lets you copy files from the directory of the Docker image into the image as its being built</p>
-                        <pre>
-							<code data-trim data-noescape>
-FROM python:latest
-
-<mark>ADD . /opt/</mark>
-
-WORKDIR /opt/
-RUN ls -alrt
-
-EXPOSE 8080
-CMD python -m http.server 8080
-							</code>
-						</pre>
-                    </section>
-                    <section>
-                        <h2>Workdir</h2>
-                        <p>Sets the directory inside the image we are working in</p>
-                        <pre>
-							<code data-trim data-noescape>
-FROM python:latest
-
-ADD . /opt/
-
-<mark>WORKDIR /opt/</mark>
-RUN ls -alrt
-
-EXPOSE 8080
-CMD python -m http.server 8080
-							</code>
-						</pre>
-                    </section>
-                    <section>
-                        <h2>Run</h2>
-                        <p>Run runs a command within the image</p>
-                        <pre>
-							<code data-trim data-noescape>
-FROM python:latest
-
-ADD . /opt/
-
-WORKDIR /opt/
-<mark>RUN ls -alrt</mark>
-
-EXPOSE 8080
-CMD python -m http.server 8080
-							</code>
-						</pre>
-                    </section>
-                    <section>
-                        <h2>Expose</h2>
-                        <p>Exposes a Port so a container can connect to it</p>
-                        <pre>
-							<code data-trim data-noescape>
-FROM python:latest
-
-ADD . /opt/
-
-WORKDIR /opt/
-RUN ls -alrt
-
-<mark>EXPOSE 8080</mark>
-CMD python -m http.server 8080
-							</code>
-						</pre>
-                    </section>
-                    <section>
-                        <h2>CMD</h2>
-                        <p>Sets the command to run when you start up the image</p>
-                        <p>We're going to start a webserver on Port 8080</p>
-                        <pre>
-							<code data-trim data-noescape>
-FROM python:latest
-
-ADD . /opt/
-
-WORKDIR /opt/
-RUN ls -alrt
-
-EXPOSE 8080
-<mark>CMD python -m http.server 8080</mark>
-							</code>
-						</pre>
-                    </section>
 				</section>
 				<section>
                     <section>
@@ -252,9 +194,51 @@ docker run -p 8080 -v .:/opt/ myimage
 							You can use this to do things like modify a theme in a running wordpress server, without having to set anything up
 						</aside>
 					</section>
-                </section>
+				</section>
 				<section>
-					<h3>Who wants to try it? </h3>
+					<section>
+						<h3>Each container should only have ONE function</h3>
+						<h3>So how do you run something that requires a DB like wordpress?</h3>
+						<h2 class="fragment">Linking</h2>
+					</section>
+					<section>
+						<h3>docker-compose</h3>
+						<pre><code>
+wordpress:
+    image: wordpress
+    links:
+     - mariadb:mysql
+    environment:
+     - WORDPRESS_DB_PASSWORD=sometemppassword
+    ports:
+     - "80:80"
+    volumes:
+     - ./code:/code
+     - ./html:/var/www/html
+mariadb:
+    image: mariadb
+    environment:
+     - MYSQL_ROOT_PASSWORD=sometemppassword
+     - MYSQL_DATABASE=wordpress
+    volumes:
+     - ./database:/var/lib/mysql
+						</code></pre>
+						<aside>
+							Note how it has a few diferent volumes?
+							The two in wordpress allow you to do wordpress development on your host and have it live update your container!
+							The one in the database backs its data up outside of the container for persistence
+						</aside>
+					</section>
+					<section>
+						<pre><code>
+[troy@home ~]$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
+f9eac6292239        wordpress           "/entrypoint.sh apach"   53 seconds ago      Up 3 seconds        0.0.0.0:80->80/tcp   wordpress_wordpress_1
+dbce2ab6c69b        mariadb             "/docker-entrypoint.s"   54 seconds ago      Up 3 seconds        3306/tcp             wordpress_mariadb_1
+
+						</code></pre>
+					</section>
+					<section><h3>Your turn ?</h3></section>
 				</section>
 			</div>
 		</div>
