@@ -46,10 +46,10 @@
 					</section>
 					<section>
 						<p>
-							<small>Microsoft ImagineCup - NZ Finalist <em>2014</em></small>
-							<small>Active Mobile Security  <em>June 2014 - September 2014</em> </small>
-							<small>Summer of Tech, Auckland  - <em>2014</em></small>
-							<small>Spark Ventures  <em>November 2014 - October 2015</em> </small>
+							<small>Microsoft ImagineCup - NZ Finalist <em>2014</em></small><br/>
+							<small>Active Mobile Security  <em>June 2014 - September 2014</em> </small><br/>
+							<small>Summer of Tech, Auckland  - <em>2014</em></small><br/>
+							<small>Spark Ventures  <em>November 2014 - October 2015</em> </small><br/>
 							<small>HealthLink  <em>October 2015 - </em></small>
 						</p>
 						<aside class="notes">
@@ -156,11 +156,11 @@ CMD python -m http.server 8080
                         <h2>Lets build it!</h2>
                        <pre>
 							<code data-trim data-noescape>
-docker build -t myimage .
+docker build -t webserver:latest .
                             </code>
                        </pre>
                         <aside class="notes">
-                           -t myimage sets the image name. the fullstop tells it to build in this directory
+                           -t webserver sets the image name. the fullstop tells it to build in this directory
                         </aside>
                     </section>
 				</section>
@@ -173,7 +173,7 @@ docker build -t myimage .
 						<h2>Ports</h2>
                        <pre>
 							<code data-trim data-noescape>
-docker run -p 8080 myimage
+docker run -p 8080 webserver
                             </code>
                        </pre>
                         <aside class="notes">
@@ -197,13 +197,13 @@ docker run -p 8080 -v .:/opt/ myimage
 				</section>
 				<section>
 					<section>
-						<h3>Each container should only have ONE function</h3>
-						<h3>So how do you run something that requires a DB like wordpress?</h3>
+						<p>Each container should only have ONE function</p>
+						<p>So how do you run something that requires a DB like wordpress?</p>
 						<h2 class="fragment">Linking</h2>
 					</section>
 					<section>
 						<h3>docker-compose</h3>
-						<pre><code>
+						<pre class="bigger"><code class="bigger">
 wordpress:
     image: wordpress
     links:
